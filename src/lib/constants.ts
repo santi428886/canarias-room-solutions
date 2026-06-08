@@ -3,6 +3,9 @@ export const BRAND = {
   shortName: "CRS",
   tagline: "Gestión de viviendas por habitaciones en Gran Canaria",
   email: "contacto@canariasroomsolutions.es",
+  phone: "643170374",
+  phoneDisplay: "643 170 374",
+  phoneTel: "+34643170374",
   location: "Gran Canaria",
 } as const;
 
@@ -258,14 +261,19 @@ export const BEFORE_AFTER_IMAGE_SIZE = {
 export const HERO_IMAGE =
   "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=85";
 
-export const EMAIL_SUBJECT_OWNER =
-  "Valoración vivienda — Propietario — Canarias Room Solutions";
+export const VALUATION_ZONES = [
+  ...OPERATING_ZONES,
+  "Otra zona de Gran Canaria",
+] as const;
 
-export const EMAIL_SUBJECT_AGENCY =
-  "Colaboración inmobiliaria — Canarias Room Solutions";
+export const PROPERTY_CONDITIONS = [
+  "Excelente — lista para gestionar",
+  "Buen estado — requiere pocos ajustes",
+  "Estado aceptable — requiere adecuación",
+  "Necesita reforma o acondicionamiento",
+] as const;
 
-export const EMAIL_BODY_OWNER =
-  "Hola,%0D%0A%0D%0ASoy propietario/a y me gustaría valorar una vivienda.%0D%0A%0D%0A• Ubicación:%0D%0A• Número de habitaciones:%0D%0A• Estado actual:%0D%0A%0D%0AUn saludo.";
+export const ROOM_OPTIONS = [1, 2, 3, 4, 5, 6] as const;
 
-export const EMAIL_BODY_AGENCY =
-  "Hola,%0D%0A%0D%0ARepresento una inmobiliaria y me gustaría conocer vuestra propuesta de colaboración.%0D%0A%0D%0A• Nombre de la inmobiliaria:%0D%0A• Zona de actuación:%0D%0A• Consulta:%0D%0A%0D%0AUn saludo.";
+export const VALUATION_EMAIL_SUBJECT =
+  "Solicitud de valoración gratuita — Canarias Room Solutions";

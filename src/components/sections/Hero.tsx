@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroContactBar } from "@/components/ui/ContactDetails";
 import { HERO_IMAGE } from "@/lib/constants";
 
 export function Hero() {
@@ -77,6 +78,8 @@ export function Hero() {
             </span>
           ))}
         </div>
+
+        <HeroContactBar />
       </div>
     </section>
   );

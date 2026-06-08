@@ -1,5 +1,5 @@
 import { BRAND } from "@/lib/constants";
-import { Mail, MapPin } from "lucide-react";
+import { FooterContactInfo } from "@/components/ui/ContactDetails";
 
 const FOOTER_LINKS = [
   { label: "Propietarios", href: "#propietarios" },
@@ -50,21 +50,7 @@ export function Footer() {
             <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
               Contacto
             </p>
-            <ul className="space-y-3 text-sm text-gray-600">
-              <li>
-                <a
-                  href={`mailto:${BRAND.email}`}
-                  className="inline-flex items-center gap-2 transition-colors hover:text-gold"
-                >
-                  <Mail className="h-4 w-4 shrink-0" />
-                  {BRAND.email}
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>{BRAND.location}</span>
-              </li>
-            </ul>
+            <FooterContactInfo />
           </div>
 
           <div>
