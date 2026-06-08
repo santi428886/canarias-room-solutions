@@ -1,92 +1,82 @@
-import { Button } from "@/components/ui/Button";
+import Image from "next/image";
+import Link from "next/link";
+import { HERO_IMAGE } from "@/lib/constants";
 
 export function Hero() {
   return (
-    <section className="hero-pattern relative flex min-h-screen items-center overflow-hidden">
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-gold/5 blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 h-80 w-80 rounded-full bg-gold/5 blur-3xl" />
-      </div>
+    <section className="relative overflow-hidden bg-gray-50 pt-28 pb-16 lg:pt-36 lg:pb-24">
+      <div className="container-main">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <p className="animate-fade-up mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+              Gran Canaria · Gestión por habitaciones
+            </p>
 
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PHBhdGggIGQ9Ik0zNiAzNGg0djRoLTR6bTAgMGg0djRoLTR6bTAgMGg0djRoLTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-50" />
+            <h1 className="animate-fade-up delay-100 font-serif text-4xl leading-[1.12] text-navy sm:text-5xl lg:text-[3.1rem]">
+              Gestión profesional de viviendas por habitaciones en Gran Canaria
+            </h1>
 
-      <div className="relative mx-auto max-w-7xl px-6 pt-32 pb-20 lg:px-8 lg:pt-40">
-        <div className="max-w-4xl">
-          <p className="animate-fade-in-up mb-6 text-xs font-semibold tracking-[0.3em] uppercase text-gold">
-            Gran Canaria · Gestión Premium
-          </p>
+            <p className="animate-fade-up delay-200 mt-6 max-w-xl text-base leading-relaxed text-gray-600 sm:text-lg">
+              Canarias Room Solutions ayuda a propietarios e inmobiliarias a
+              gestionar viviendas destinadas al alquiler por habitaciones, con
+              un modelo ordenado, transparente y enfocado en la estabilidad.
+            </p>
 
-          <h1 className="animate-fade-in-up animate-delay-100 font-serif text-4xl leading-[1.15] text-cream sm:text-5xl lg:text-6xl xl:text-7xl">
-            Su vivienda.{" "}
-            <span className="gold-gradient-text">Nuestra gestión.</span>{" "}
-            Su tranquilidad.
-          </h1>
+            <div className="animate-fade-up delay-300 mt-10 flex flex-col gap-4 sm:flex-row">
+              <Link href="#propietarios" className="btn-primary">
+                Soy propietario
+              </Link>
+              <Link href="#inmobiliarias" className="btn-secondary">
+                Soy inmobiliaria
+              </Link>
+            </div>
 
-          <p className="animate-fade-in-up animate-delay-200 mt-8 max-w-2xl text-lg leading-relaxed text-cream/75 sm:text-xl">
-            Reciba una renta estable mientras nosotros nos ocupamos de todo.
-          </p>
-
-          <div className="animate-fade-in-up animate-delay-300 mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Button href="#contacto" variant="primary">
-              Solicitar valoración gratuita
-            </Button>
-            <a
-              href="#como-funciona"
-              className="inline-flex items-center gap-2 px-4 py-4 text-sm font-medium tracking-wide text-cream/70 transition-colors hover:text-gold"
-            >
-              Descubrir cómo funciona
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="h-4 w-4"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </a>
+            <p className="animate-fade-up delay-300 mt-5 text-sm text-gray-500">
+              Valoración inicial sin compromiso · Respuesta en 24–48 horas
+              laborables
+            </p>
           </div>
 
-          <div className="animate-fade-in-up animate-delay-400 mt-20 grid grid-cols-3 gap-8 border-t border-cream/10 pt-10 sm:max-w-lg">
-            {[
-              { value: "100%", label: "Gestión integral" },
-              { value: "24/7", label: "Atención incidencias" },
-              { value: "12%", label: "Comisión inmobiliarias" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="font-serif text-2xl text-gold sm:text-3xl">
-                  {stat.value}
+          <div className="animate-fade-up delay-200 relative">
+            <div className="absolute -inset-4 rounded-3xl bg-gold/10 blur-2xl" />
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-navy/10">
+              <Image
+                src={HERO_IMAGE}
+                alt="Vivienda gestionada profesionalmente en Gran Canaria"
+                width={1200}
+                height={900}
+                className="aspect-[4/3] w-full object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/95 p-4 backdrop-blur-sm">
+                <p className="text-xs font-semibold uppercase tracking-wider text-gold">
+                  Modelo de gestión especializado
                 </p>
-                <p className="mt-1 text-xs text-cream/50">{stat.label}</p>
+                <p className="mt-1 text-sm text-navy">
+                  Mayor control, seguimiento continuo y coordinación profesional
+                  del alquiler por habitaciones.
+                </p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <a href="#propietarios" aria-label="Ir a propietarios" className="text-cream/30 hover:text-gold transition-colors">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="h-6 w-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </a>
+        <div className="animate-fade-up delay-400 mt-14 flex flex-wrap items-center justify-center gap-3 border-t border-gray-200 pt-10 lg:mt-16">
+          {[
+            "Gran Canaria",
+            "Gestión especializada",
+            "Modelo transparente",
+            "Seguimiento continuo",
+          ].map((label) => (
+            <span
+              key={label}
+              className="inline-flex items-center rounded-full border border-gray-200 bg-white px-5 py-2 text-sm font-medium text-navy shadow-sm"
+            >
+              {label}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

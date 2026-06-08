@@ -2,45 +2,42 @@ interface SectionHeadingProps {
   eyebrow?: string;
   title: string;
   subtitle?: string;
-  light?: boolean;
   align?: "left" | "center";
+  dark?: boolean;
 }
 
 export function SectionHeading({
   eyebrow,
   title,
   subtitle,
-  light = false,
   align = "center",
+  dark = false,
 }: SectionHeadingProps) {
-  const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
+  const alignClass = align === "center" ? "mx-auto text-center" : "text-left";
 
   return (
-    <div className={`max-w-3xl mb-16 ${alignClass}`}>
+    <div className={`max-w-3xl ${alignClass} mb-14 lg:mb-16`}>
       {eyebrow && (
-        <p className="mb-4 text-xs font-semibold tracking-[0.25em] uppercase text-gold">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
           {eyebrow}
         </p>
       )}
       <h2
-        className={`font-serif text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6 ${
-          light ? "text-cream" : "text-navy"
+        className={`font-serif text-3xl leading-tight sm:text-4xl lg:text-[2.75rem] ${
+          dark ? "text-white" : "text-navy"
         }`}
       >
         {title}
       </h2>
       {subtitle && (
         <p
-          className={`text-lg leading-relaxed ${
-            light ? "text-cream/80" : "text-navy/70"
+          className={`mt-5 text-base leading-relaxed sm:text-lg ${
+            dark ? "text-white/70" : "text-gray-600"
           }`}
         >
           {subtitle}
         </p>
       )}
-      <div
-        className={`mt-8 h-px w-24 bg-gold ${align === "center" ? "mx-auto" : ""}`}
-      />
     </div>
   );
 }

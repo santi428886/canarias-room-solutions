@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Lato } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import { getSiteUrl } from "@/lib/site";
 import { BRAND } from "@/lib/constants";
 import "./globals.css";
@@ -10,10 +10,9 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const lato = Lato({
-  variable: "--font-lato",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
   display: "swap",
 });
 
@@ -22,22 +21,22 @@ const siteUrl = getSiteUrl();
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#071B35",
+  themeColor: "#0a1628",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${BRAND.name} | Gestión Premium de Viviendas en Gran Canaria`,
+    default: `${BRAND.name} | Alquiler por habitaciones en Gran Canaria`,
     template: `%s | ${BRAND.name}`,
   },
   description:
-    "Reciba una renta estable mientras nosotros nos ocupamos de todo. Gestión integral de viviendas para propietarios e inmobiliarias en Gran Canaria.",
+    "Gestión profesional de viviendas por habitaciones en Gran Canaria. Modelo ordenado y transparente para propietarios e inmobiliarias.",
   keywords: [
-    "gestión viviendas Gran Canaria",
-    "alquiler habitaciones Las Palmas",
+    "alquiler por habitaciones Gran Canaria",
+    "gestión viviendas Las Palmas",
+    "rentabilidad propietarios",
     "inmobiliaria Gran Canaria",
-    "renta estable propietarios",
     "Canarias Room Solutions",
   ],
   authors: [{ name: BRAND.name }],
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: BRAND.name,
     description:
-      "Su vivienda. Nuestra gestión. Su tranquilidad. Gestión premium en Gran Canaria.",
+      "Gestión profesional de viviendas por habitaciones en Gran Canaria, con un modelo ordenado, transparente y enfocado en la estabilidad.",
     url: siteUrl,
     siteName: BRAND.name,
     locale: "es_ES",
@@ -73,7 +72,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${playfair.variable} ${lato.variable} h-full scroll-smooth antialiased`}
+      className={`${playfair.variable} ${inter.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full font-sans">{children}</body>
     </html>

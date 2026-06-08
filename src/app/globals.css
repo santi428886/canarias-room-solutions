@@ -1,11 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --navy: #071b35;
-  --gold: #c8a15a;
-  --cream: #f7f4ed;
-  --gold-light: #d4b06e;
-  --navy-light: #0d2a4f;
+  --navy: #0a1628;
+  --navy-light: #152238;
+  --gold: #c4a265;
+  --gold-light: #d4b87a;
+  --beige: #f5f0e8;
+  --cream: #fafaf8;
+  --gray-50: #f8f9fb;
+  --gray-100: #f1f3f6;
+  --gray-200: #e2e6ec;
+  --gray-400: #94a3b8;
+  --gray-600: #64748b;
 }
 
 @theme inline {
@@ -13,9 +19,15 @@
   --color-navy-light: var(--navy-light);
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
+  --color-beige: var(--beige);
   --color-cream: var(--cream);
+  --color-gray-50: var(--gray-50);
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-400: var(--gray-400);
+  --color-gray-600: var(--gray-600);
   --font-serif: var(--font-playfair);
-  --font-sans: var(--font-lato);
+  --font-sans: var(--font-inter);
 }
 
 html {
@@ -23,53 +35,52 @@ html {
 }
 
 body {
-  background-color: var(--cream);
+  background-color: white;
   color: var(--navy);
-  font-family: var(--font-lato), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
 ::selection {
   background-color: var(--gold);
-  color: var(--navy);
+  color: white;
 }
 
-.gold-gradient-text {
-  background: linear-gradient(135deg, #c8a15a 0%, #e8c882 50%, #c8a15a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.section-padding {
+  @apply py-20 lg:py-28;
 }
 
-.hero-pattern {
-  background-image:
-    radial-gradient(circle at 20% 80%, rgba(200, 161, 90, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(200, 161, 90, 0.06) 0%, transparent 40%),
-    linear-gradient(180deg, #071b35 0%, #0a2340 50%, #071b35 100%);
+.container-main {
+  @apply mx-auto max-w-7xl px-6 lg:px-8;
 }
 
-.section-divider {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(200, 161, 90, 0.4) 50%,
-    transparent 100%
-  );
+.card-modern {
+  @apply rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 lg:p-8;
 }
 
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.card-modern:hover {
+  @apply -translate-y-1 shadow-lg shadow-navy/5;
 }
 
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(7, 27, 53, 0.12);
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-navy-light hover:shadow-lg hover:shadow-navy/20;
 }
 
-@keyframes fade-in-up {
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-7 py-3.5 text-sm font-semibold text-navy transition-all duration-300 hover:border-navy hover:shadow-md;
+}
+
+.btn-gold {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/30;
+}
+
+.highlight-badge {
+  @apply inline-flex items-center rounded-full bg-gold/10 px-4 py-1.5 text-sm font-semibold text-gold;
+}
+
+@keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -77,26 +88,11 @@ body {
   }
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease forwards;
+.animate-fade-up {
+  animation: fade-up 0.7s ease forwards;
 }
 
-.animate-delay-100 {
-  animation-delay: 0.1s;
-  opacity: 0;
-}
-
-.animate-delay-200 {
-  animation-delay: 0.2s;
-  opacity: 0;
-}
-
-.animate-delay-300 {
-  animation-delay: 0.3s;
-  opacity: 0;
-}
-
-.animate-delay-400 {
-  animation-delay: 0.4s;
-  opacity: 0;
-}
+.delay-100 { animation-delay: 0.1s; opacity: 0; }
+.delay-200 { animation-delay: 0.2s; opacity: 0; }
+.delay-300 { animation-delay: 0.3s; opacity: 0; }
+.delay-400 { animation-delay: 0.4s; opacity: 0; }
