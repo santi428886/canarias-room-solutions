@@ -4,7 +4,9 @@ import {
   LayoutGrid,
   MapPin,
   MessageCircle,
+  SlidersHorizontal,
   Target,
+  TrendingUp,
   type LucideIcon,
 } from "lucide-react";
 import { AnimateIn } from "@/components/ui/AnimateIn";
@@ -18,6 +20,8 @@ const iconMap: Record<string, LucideIcon> = {
   activity: Activity,
   layout: LayoutGrid,
   handshake: Handshake,
+  trending: TrendingUp,
+  sliders: SlidersHorizontal,
 };
 
 export function WhyCanarias() {

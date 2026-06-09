@@ -1,13 +1,14 @@
-import { BRAND } from "@/lib/constants";
+import { BRAND, LEGAL_LINKS } from "@/lib/constants";
 import { FooterContactInfo } from "@/components/ui/ContactDetails";
+import Link from "next/link";
 
 const FOOTER_LINKS = [
-  { label: "Propietarios", href: "#propietarios" },
-  { label: "Inmobiliarias", href: "#inmobiliarias" },
-  { label: "Por qué CRS", href: "#por-que-crs" },
-  { label: "Cómo funciona", href: "#como-funciona" },
-  { label: "Zonas", href: "#zonas" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Propietarios", href: "/#propietarios" },
+  { label: "Caso práctico", href: "/#caso-practico" },
+  { label: "Inmobiliarias", href: "/inmobiliarias" },
+  { label: "Quiénes somos", href: "/#quienes-somos" },
+  { label: "Cómo funciona", href: "/#como-funciona" },
+  { label: "Contacto", href: "/#contacto" },
 ] as const;
 
 export function Footer() {
@@ -35,12 +36,12 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm text-gray-600">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="transition-colors hover:text-gold"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -66,8 +67,21 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-gray-100 pt-8 text-center text-xs text-gray-400">
-          © {currentYear} {BRAND.name}. Todos los derechos reservados.
+        <div className="mt-12 border-t border-gray-100 pt-8">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-600">
+            {LEGAL_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-colors hover:text-gold"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-xs text-gray-400">
+            © {currentYear} {BRAND.name}. Todos los derechos reservados.
+          </p>
         </div>
       </div>
     </footer>

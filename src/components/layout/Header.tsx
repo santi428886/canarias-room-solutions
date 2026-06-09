@@ -30,7 +30,7 @@ export function Header() {
       }`}
     >
       <div className="container-main flex items-center justify-between">
-        <Link href="#" className="group">
+        <Link href="/" className="group">
           <span className="font-serif text-xl text-navy sm:text-2xl">
             Canarias Room
           </span>
@@ -41,17 +41,17 @@ export function Header() {
 
         <nav className="hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-gray-600 transition-colors hover:text-navy"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a href="#contacto" className="btn-primary !py-2.5 !text-xs">
+          <Link href="/#contacto" className="btn-primary !py-2.5 !text-xs">
             Contacto
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -76,22 +76,22 @@ export function Header() {
         <nav className="border-t border-gray-200 bg-white px-6 py-6 lg:hidden">
           <div className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-base font-medium text-navy"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contacto"
+            <Link
+              href="/#contacto"
               className="btn-primary mt-2 text-center"
               onClick={() => setMenuOpen(false)}
             >
               Contacto
-            </a>
+            </Link>
           </div>
         </nav>
       )}

@@ -10,7 +10,7 @@ export function HeroContactBar() {
         📞 {BRAND.phoneDisplay}
       </a>
       <a href={`mailto:${BRAND.email}`} className={linkClass}>
-        📧 {BRAND.email}
+        ✉️ {BRAND.email}
       </a>
       <span className="text-sm font-medium text-gray-600">
         📍 {BRAND.location}

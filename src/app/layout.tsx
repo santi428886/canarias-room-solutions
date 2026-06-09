@@ -27,11 +27,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${BRAND.name} | Alquiler por habitaciones en Gran Canaria`,
+    default:
+      "Canarias Room Solutions | Gestión de viviendas por habitaciones en Gran Canaria",
     template: `%s | ${BRAND.name}`,
   },
   description:
-    "Gestión profesional de viviendas por habitaciones en Gran Canaria. Modelo ordenado y transparente para propietarios e inmobiliarias.",
+    "Gestión profesional de viviendas destinadas al alquiler por habitaciones en Gran Canaria. Soluciones para propietarios e inmobiliarias.",
   keywords: [
     "alquiler por habitaciones Gran Canaria",
     "gestión viviendas Las Palmas",
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: BRAND.name,
     description:
-      "Gestión profesional de viviendas por habitaciones en Gran Canaria, con un modelo ordenado, transparente y enfocado en la estabilidad.",
+      "Gestión profesional de viviendas destinadas al alquiler por habitaciones en Gran Canaria. Soluciones para propietarios e inmobiliarias.",
     url: siteUrl,
     siteName: BRAND.name,
     locale: "es_ES",

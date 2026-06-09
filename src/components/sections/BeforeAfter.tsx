@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { AnimateIn } from "@/components/ui/AnimateIn";
+import { ComparisonImage } from "@/components/ui/ComparisonImage";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BEFORE_AFTER, BEFORE_AFTER_IMAGE_SIZE } from "@/lib/constants";
 
@@ -19,12 +19,17 @@ function ComparisonCard({
     <AnimateIn delay={delay}>
       <article className="flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-lg shadow-navy/5">
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
-          <Image
+          <ComparisonImage
             src={item.image}
+            fallbackSrc={item.fallbackImage}
             alt={`${item.label}: ${item.caption}`}
             width={BEFORE_AFTER_IMAGE_SIZE.width}
             height={BEFORE_AFTER_IMAGE_SIZE.height}
-            className="h-full w-full object-cover"
+            className={`h-full w-full object-cover ${
+              isAfter
+                ? ""
+                : "brightness-[0.88] contrast-[1.05] saturate-[0.85]"
+            }`}
             sizes="(max-width: 768px) 100vw, 50vw"
           />
           <span

@@ -1,14 +1,17 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { Owners } from "@/components/sections/Owners";
-import { RealEstateAgencies } from "@/components/sections/RealEstateAgencies";
-import { WhyCanarias } from "@/components/sections/WhyCanarias";
+import { OwnerFlexBand } from "@/components/sections/OwnerFlexBand";
+import { OwnerValueChange } from "@/components/sections/OwnerValueChange";
+import { OwnerServices } from "@/components/sections/OwnerServices";
+import { OwnerCaseStudy } from "@/components/sections/OwnerCaseStudy";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { PropertyTypes } from "@/components/sections/PropertyTypes";
-import { OperatingZones } from "@/components/sections/OperatingZones";
 import { BeforeAfter } from "@/components/sections/BeforeAfter";
+import { AboutUs } from "@/components/sections/AboutUs";
+import { OwnerFaq } from "@/components/sections/OwnerFaq";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -16,16 +19,19 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Owners />
-        <RealEstateAgencies />
-        <WhyCanarias />
+        <OwnerFlexBand />
+        <OwnerValueChange />
+        <OwnerServices />
+        <OwnerCaseStudy />
         <HowItWorks />
         <PropertyTypes />
-        <OperatingZones />
         <BeforeAfter />
+        <AboutUs />
+        <OwnerFaq />
         <FinalCTA />
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }

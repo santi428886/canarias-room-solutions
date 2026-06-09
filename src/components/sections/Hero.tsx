@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HeroContactBar } from "@/components/ui/ContactDetails";
-import { HERO_IMAGE } from "@/lib/constants";
+import {
+  HERO_IMAGE,
+  HERO_OWNER_BADGES,
+  HERO_OWNER_HIGHLIGHT,
+  HERO_TITLE,
+} from "@/lib/constants";
 
 export function Hero() {
   return (
@@ -14,28 +19,32 @@ export function Hero() {
             </p>
 
             <h1 className="animate-fade-up delay-100 font-serif text-4xl leading-[1.12] text-navy sm:text-5xl lg:text-[3.1rem]">
-              Gestión profesional de viviendas por habitaciones en Gran Canaria
+              {HERO_TITLE}
             </h1>
 
-            <p className="animate-fade-up delay-200 mt-6 max-w-xl text-base leading-relaxed text-gray-600 sm:text-lg">
-              Canarias Room Solutions ayuda a propietarios e inmobiliarias a
-              gestionar viviendas destinadas al alquiler por habitaciones, con
-              un modelo ordenado, transparente y enfocado en la estabilidad.
+            <p className="animate-fade-up delay-200 mt-6 max-w-xl text-base font-medium leading-relaxed text-navy sm:text-lg">
+              {HERO_OWNER_HIGHLIGHT}
             </p>
 
+            <div className="animate-fade-up delay-250 mt-6 flex flex-wrap gap-3">
+              {HERO_OWNER_BADGES.map((label) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-navy shadow-sm"
+                >
+                  ✔ {label}
+                </span>
+              ))}
+            </div>
+
             <div className="animate-fade-up delay-300 mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link href="#propietarios" className="btn-primary">
-                Soy propietario
+              <Link href="#contacto" className="btn-primary">
+                Solicitar valoración gratuita
               </Link>
-              <Link href="#inmobiliarias" className="btn-secondary">
+              <Link href="/inmobiliarias" className="btn-secondary">
                 Soy inmobiliaria
               </Link>
             </div>
-
-            <p className="animate-fade-up delay-300 mt-5 text-sm text-gray-500">
-              Valoración inicial sin compromiso · Respuesta en 24–48 horas
-              laborables
-            </p>
           </div>
 
           <div className="animate-fade-up delay-200 relative">
