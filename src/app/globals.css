@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --navy: #0a1628;
-  --navy-light: #152238;
-  --gold: #c4a265;
-  --gold-light: #d4b87a;
+  --navy: #071A38;
+  --navy-light: #0B1D3A;
+  --navy-deep: #040E1C;
+  --navy-mid: #07162D;
+  --gold: #C9A84C;
+  --gold-light: #DDB96A;
   --beige: #f5f0e8;
   --cream: #fafaf8;
   --gray-50: #f8f9fb;
@@ -17,6 +19,8 @@
 @theme inline {
   --color-navy: var(--navy);
   --color-navy-light: var(--navy-light);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-mid: var(--navy-mid);
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
   --color-beige: var(--beige);
@@ -46,7 +50,7 @@ body {
 }
 
 .section-padding {
-  @apply py-20 lg:py-28;
+  @apply py-16 lg:py-24;
 }
 
 .container-main {
@@ -54,11 +58,11 @@ body {
 }
 
 .card-modern {
-  @apply rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 lg:p-8;
+  @apply rounded-2xl border border-gray-200 bg-white p-6 shadow-md shadow-navy/5 transition-all duration-300 lg:p-8;
 }
 
 .card-modern:hover {
-  @apply -translate-y-1 shadow-lg shadow-navy/5;
+  @apply -translate-y-1 shadow-xl shadow-navy/10;
 }
 
 .btn-primary {
@@ -111,4 +115,56 @@ body {
 .whatsapp-float {
   animation: whatsapp-float-in 0.6s ease-out 0.8s forwards;
   opacity: 0;
+}
+
+/* ── Dark section utilities ───────────────────────────────────────────────── */
+.section-dark {
+  background: linear-gradient(180deg, #0B1D3A 0%, #07162D 100%);
+}
+
+.section-deep {
+  background: linear-gradient(180deg, #040E1C 0%, #071A38 60%, #040E1C 100%);
+}
+
+.dark-card {
+  background: linear-gradient(180deg, #0B1D3A 0%, #07162D 100%);
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(201, 168, 76, 0.08) inset;
+  @apply rounded-2xl;
+}
+
+.dark-card-subtle {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  @apply rounded-2xl;
+}
+
+.gold-separator {
+  @apply h-px w-full bg-gradient-to-r from-transparent via-gold/50 to-transparent;
+}
+
+.gold-separator-faint {
+  @apply h-px w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent;
+}
+
+.section-padding-xl {
+  @apply py-24 lg:py-36;
+}
+
+/* Dark form inputs */
+.input-dark {
+  @apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3.5 text-white placeholder:text-white/30 transition-colors focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20;
+}
+
+.label-dark {
+  @apply mb-2 block text-xs font-semibold uppercase tracking-wider text-white/45;
+}
+
+/* Select dark arrow */
+.select-dark {
+  @apply w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-white/5 px-4 py-3.5 text-white placeholder:text-white/30 transition-colors focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C9A84C' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
 }

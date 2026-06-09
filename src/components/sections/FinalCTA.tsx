@@ -4,31 +4,41 @@ import { ValuationForm } from "@/components/sections/ValuationForm";
 
 export function FinalCTA() {
   return (
-    <section id="contacto" className="section-padding bg-white">
-      <div className="container-main">
+    <section
+      id="contacto"
+      className="relative overflow-hidden section-padding"
+      style={{ background: "linear-gradient(170deg, #071A38 0%, #040E1C 50%, #071A38 100%)" }}
+    >
+      {/* Top separator */}
+      <div className="absolute inset-x-0 top-0 gold-separator" />
+      {/* Radial glow */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_30%_30%,rgba(201,168,76,0.09),transparent_65%)]" />
+
+      <div className="container-main relative">
         <AnimateIn>
-          <div className="relative overflow-hidden rounded-3xl bg-navy px-6 py-12 lg:px-12 lg:py-16">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(196,162,101,0.12),transparent_50%)]" />
+          <div className="relative grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
 
-            <div className="relative grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
-              <div className="lg:pt-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-                  Valoración gratuita
-                </p>
-                <h2 className="mt-4 font-serif text-3xl text-white sm:text-4xl">
-                  ¿Quieres valorar tu vivienda?
-                </h2>
-                <p className="mt-5 text-base leading-relaxed text-white/70">
-                  Complete el formulario con los datos de la propiedad.
-                  Revisaremos si encaja con nuestro modelo y le contactaremos
-                  en 24-48 horas laborables, sin compromiso.
-                </p>
+            {/* Left — copy */}
+            <div className="lg:pt-4">
+              <span className="inline-flex items-center rounded-full border border-gold/25 bg-gold/8 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+                Valoración gratuita
+              </span>
+              <h2 className="mt-5 font-serif text-3xl text-white sm:text-4xl lg:text-5xl">
+                ¿Quieres valorar tu vivienda?
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-white/60 lg:text-lg">
+                Complete el formulario y le contactaremos en 24–48 horas,
+                sin compromiso.
+              </p>
 
-                <CtaContactInfo />
-              </div>
+              {/* Divider */}
+              <div className="mt-8 h-px w-24 bg-gradient-to-r from-gold/40 to-transparent" />
 
-              <ValuationForm />
+              <CtaContactInfo />
             </div>
+
+            {/* Right — form */}
+            <ValuationForm />
           </div>
         </AnimateIn>
       </div>

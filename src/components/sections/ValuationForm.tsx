@@ -32,10 +32,10 @@ const initialState: FormState = {
 };
 
 const inputClass =
-  "w-full rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-navy placeholder:text-gray-400 transition-colors focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20";
+  "w-full rounded-xl border border-white/10 bg-white/6 px-4 py-3.5 text-white placeholder:text-white/28 transition-colors focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20";
 
 const labelClass =
-  "mb-2 block text-xs font-semibold uppercase tracking-wider text-gray-500";
+  "mb-2 block text-xs font-semibold uppercase tracking-wider text-white/45";
 
 export function ValuationForm() {
   const [form, setForm] = useState<FormState>(initialState);
@@ -81,21 +81,21 @@ export function ValuationForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl bg-white p-10 text-center shadow-xl shadow-navy/10">
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold">
+      <div className="dark-card p-10 text-center">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gold/15 text-gold">
           <CheckCircle2 className="h-8 w-8" />
         </div>
-        <h3 className="font-serif text-2xl text-navy">
+        <h3 className="font-serif text-2xl text-white">
           Solicitud enviada correctamente
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-gray-600">
+        <p className="mt-3 text-sm leading-relaxed text-white/55">
           Hemos recibido sus datos. Revisaremos la información de la vivienda y
           le contactaremos en un plazo aproximado de 24–48 horas laborables.
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="btn-secondary mt-8"
+          className="btn-gold mt-8"
         >
           Enviar otra solicitud
         </button>
@@ -106,7 +106,7 @@ export function ValuationForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl bg-white p-6 shadow-xl shadow-navy/10 sm:p-8"
+      className="dark-card p-6 sm:p-8"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="sm:col-span-2">
@@ -250,7 +250,7 @@ export function ValuationForm() {
       </div>
 
       {status === "error" && (
-        <p className="mt-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+        <p className="mt-5 rounded-xl border border-red-500/25 bg-red-500/10 px-4 py-3 text-sm text-red-400">
           {errorMessage}
         </p>
       )}
@@ -270,7 +270,7 @@ export function ValuationForm() {
         )}
       </button>
 
-      <p className="mt-4 text-center text-xs leading-relaxed text-gray-500">
+      <p className="mt-4 text-center text-xs leading-relaxed text-white/30">
         Te responderemos en un plazo aproximado de 24–48 horas laborables.
       </p>
     </form>

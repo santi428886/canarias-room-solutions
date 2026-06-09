@@ -4,8 +4,12 @@ import { PROCESS_STEPS } from "@/lib/constants";
 
 export function HowItWorks() {
   return (
-    <section id="como-funciona" className="section-padding bg-navy">
-      <div className="container-main">
+    <section id="como-funciona" className="section-dark relative overflow-hidden section-padding">
+      <div className="absolute inset-x-0 top-0 gold-separator-faint" />
+      <div className="absolute inset-x-0 bottom-0 gold-separator-faint" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(201,168,76,0.07),transparent_65%)]" />
+
+      <div className="container-main relative">
         <AnimateIn>
           <SectionHeading
             eyebrow="Proceso"
@@ -15,17 +19,19 @@ export function HowItWorks() {
           />
         </AnimateIn>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PROCESS_STEPS.map((step, index) => (
             <AnimateIn key={step.step} delay={index * 100}>
-              <article className="group h-full rounded-2xl border border-white/10 bg-navy-light p-6 transition-all duration-300 hover:border-gold/30 lg:p-8">
-                <span className="font-serif text-5xl text-white/10 transition-colors group-hover:text-gold/20">
+              <article className="group dark-card h-full p-6 transition-all duration-300 hover:border-gold/30 hover:-translate-y-1 lg:p-8"
+                style={{ background: "linear-gradient(160deg, #0B1D3A 0%, #07162D 100%)" }}
+              >
+                <span className="font-serif text-5xl font-bold text-gold/15 transition-colors group-hover:text-gold/30">
                   0{step.step}
                 </span>
                 <h3 className="mt-4 font-serif text-xl text-white">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/60">
+                <p className="mt-3 text-sm leading-relaxed text-white/55">
                   {step.description}
                 </p>
               </article>

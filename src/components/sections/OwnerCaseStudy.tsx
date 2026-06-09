@@ -1,223 +1,98 @@
-import { Check, Home } from "lucide-react";
+import Link from "next/link";
+import { Plus } from "lucide-react";
 import { AnimateIn } from "@/components/ui/AnimateIn";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { OWNER_CASE_STUDY, OWNER_COMPARISON } from "@/lib/constants";
-
-const cardClass =
-  "overflow-hidden rounded-2xl bg-white shadow-xl shadow-black/10 ring-1 ring-white/10";
+import { OWNER_CASE_FUNNEL } from "@/lib/constants";
 
 export function OwnerCaseStudy() {
-  const study = OWNER_CASE_STUDY;
-  const comparison = OWNER_COMPARISON;
+  const example = OWNER_CASE_FUNNEL;
 
   return (
-    <section id="caso-practico" className="section-padding bg-navy">
-      <div className="container-main">
+    <section id="caso-practico" className="section-deep relative overflow-hidden py-28 lg:py-40">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_65%,rgba(201,168,76,0.11),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_0%_0%,rgba(201,168,76,0.04),transparent_60%)]" />
+      <div className="absolute inset-x-0 top-0 gold-separator" />
+      <div className="absolute inset-x-0 bottom-0 gold-separator-faint" />
+
+      <div className="container-main relative">
         <AnimateIn>
-          <SectionHeading
-            eyebrow="Propietarios"
-            title={study.title}
-            subtitle={study.subtitle}
-            dark
-          />
+          <div className="flex justify-center">
+            <span className="inline-flex items-center rounded-full border border-gold/25 bg-gold/8 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+              Caso práctico orientativo
+            </span>
+          </div>
+          <h2 className="mt-6 text-center font-serif text-3xl text-white sm:text-4xl lg:text-5xl">
+            {example.title}
+          </h2>
+          <p className="mx-auto mt-3 max-w-md text-center text-sm text-white/50 lg:text-base">
+            {example.subtitle}
+          </p>
         </AnimateIn>
 
-        <div className="space-y-6">
-          <AnimateIn delay={80}>
-            <div className={cardClass}>
-              <div className="border-b border-gray-100 bg-beige/30 px-6 py-4 sm:px-8">
-                <p className="flex items-center gap-2 font-serif text-xl text-navy sm:text-2xl">
-                  <Home className="h-5 w-5 text-gold" strokeWidth={1.5} />
-                  {study.property}
+        <AnimateIn delay={100}>
+          <article className="dark-card mx-auto mt-14 max-w-2xl overflow-hidden">
+            <div className="space-y-0 px-7 py-8 sm:px-10 sm:py-10">
+              <div className="flex items-end justify-between gap-4 border-b border-white/10 pb-6">
+                <p className="max-w-[14rem] text-sm leading-snug text-white/55 sm:text-base">
+                  {example.agreedRent.label}
+                </p>
+                <p className="shrink-0 font-serif text-3xl text-white sm:text-4xl">
+                  {example.agreedRent.amount}
                 </p>
               </div>
 
-              <div className="grid lg:grid-cols-2">
-                <div className="border-b border-gray-100 p-6 sm:p-8 lg:border-b-0 lg:border-r">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-                    🏠 {study.ownerReceive.label}
-                  </p>
-                  <p className="mt-4 font-serif text-5xl leading-none text-navy sm:text-6xl">
-                    {study.ownerReceive.amount}
-                  </p>
-                  <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-2 text-sm font-medium text-navy">
-                    ✅ {study.ownerReceive.badge}
-                  </p>
-                </div>
-
-                <div className="p-6 sm:p-8">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-                    {study.crsManagementTitle}
-                  </p>
-                  <ul className="mt-5 space-y-3">
-                    {study.crsManagement.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-3 text-sm text-gray-600"
-                      >
-                        <Check
-                          className="mt-0.5 h-4 w-4 shrink-0 text-gold"
-                          strokeWidth={2.5}
-                        />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+              <div className="flex items-center justify-center py-4">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/30 bg-gold/10 text-gold">
+                  <Plus className="h-4 w-4" strokeWidth={2.5} aria-hidden />
                 </div>
               </div>
-            </div>
-          </AnimateIn>
 
-          <AnimateIn delay={120}>
-            <div>
-              <p className="mb-2 text-sm font-semibold text-white sm:text-base">
-                {study.orientativeTitle}
-              </p>
-              <p className="mb-5 max-w-3xl text-sm leading-relaxed text-white/60">
-                {study.orientativeNote}
-              </p>
-
-              <div className="grid gap-6 lg:grid-cols-2">
-                {study.orientativeExamples.map((example) => (
-                  <article key={example.title} className={cardClass}>
-                    <div className="border-b border-gray-100 px-6 py-4 sm:px-8">
-                      <p className="font-serif text-xl text-navy sm:text-2xl">
-                        {example.title}
-                      </p>
-                    </div>
-                    <div className="space-y-6 p-6 sm:p-8">
-                      <div>
-                        <p className="text-xs uppercase tracking-wider text-gray-400">
-                          Renta acordada
-                        </p>
-                        <p className="mt-2 font-serif text-4xl text-navy sm:text-5xl">
-                          {example.ownerRent}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-wider text-gray-400">
-                          Participación orientativa
-                        </p>
-                        <p className="mt-2 font-serif text-2xl text-gold sm:text-3xl">
-                          {example.participationRange}
-                        </p>
-                      </div>
-                      <div className="border-t border-gray-100 pt-6">
-                        <p className="text-xs uppercase tracking-wider text-gray-400">
-                          Resultado orientativo
-                        </p>
-                        <p className="mt-2 font-serif text-2xl leading-tight text-navy sm:text-3xl">
-                          {example.resultRange}
-                        </p>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </AnimateIn>
-
-          <AnimateIn delay={160}>
-            <div className={cardClass}>
-              <div className="border-b border-gray-100 bg-beige/30 px-6 py-4 sm:px-8">
-                <p className="font-serif text-xl text-navy sm:text-2xl">
-                  {study.collaborationOptions.title}
+              <div className="flex items-end justify-between gap-4 rounded-xl border border-gold/25 bg-gold/8 px-5 py-5">
+                <p className="max-w-[14rem] text-sm font-medium leading-snug text-gold/90 sm:text-base">
+                  {example.additionalParticipation.label}
+                </p>
+                <p className="shrink-0 font-serif text-3xl text-gold sm:text-4xl">
+                  {example.additionalParticipation.amount}
                 </p>
               </div>
-              <div className="grid lg:grid-cols-2">
-                {study.collaborationOptions.options.map((option, index) => (
-                  <div
-                    key={option.label}
-                    className={`px-6 py-6 sm:px-8 sm:py-7 ${
-                      index === 0
-                        ? "border-b border-gray-100 lg:border-b-0 lg:border-r"
-                        : ""
-                    }`}
-                  >
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-                      {option.label}
-                    </p>
-                    <p className="mt-3 font-semibold text-navy">{option.title}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                      {option.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <div className="border-t border-gray-100 bg-gray-50 px-6 py-3 sm:px-8">
-                <p className="text-xs text-gray-500 sm:text-sm">
-                  {study.collaborationOptions.note}
-                </p>
-              </div>
-            </div>
-          </AnimateIn>
 
-          <AnimateIn delay={200}>
-            <div className={cardClass}>
-              <div className="grid grid-cols-2 border-b border-gray-100">
-                <div className="bg-gray-50 px-4 py-4 text-center sm:px-6">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                    {comparison.aloneLabel}
-                  </p>
-                </div>
-                <div className="bg-navy px-4 py-4 text-center sm:px-6">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-gold">
-                    {comparison.crsLabel}
-                  </p>
-                </div>
-              </div>
-              {comparison.rows.map((row, index) => (
-                <div
-                  key={row.alone}
-                  className={`grid grid-cols-2 ${
-                    index !== comparison.rows.length - 1
-                      ? "border-b border-gray-100"
-                      : ""
-                  }`}
+              <div className="my-8 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+
+              <div className="text-center">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold/70">
+                  {example.total.label}
+                </p>
+                <p
+                  className="mt-4 font-serif leading-none text-gold"
+                  style={{ fontSize: "clamp(3.5rem, 10vw, 6.5rem)" }}
                 >
-                  <div className="px-4 py-4 text-sm text-gray-500 sm:px-6">
-                    {row.alone}
-                  </div>
-                  <div className="flex items-center border-l border-gray-100 bg-beige/20 px-4 py-4 text-sm font-medium text-navy sm:px-6">
-                    <Check
-                      className="mr-2 hidden h-4 w-4 shrink-0 text-gold sm:inline"
-                      strokeWidth={2.5}
-                    />
-                    {row.withCrs}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </AnimateIn>
-
-          <AnimateIn delay={240}>
-            <div className={cardClass}>
-              <div className="border-b border-gray-100 bg-navy px-6 py-4 sm:px-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-                  {study.resultsTitle}
+                  {example.total.amount}
                 </p>
               </div>
-              <ul className="grid gap-3 p-6 sm:grid-cols-2 sm:p-8">
-                {study.results.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-3 text-sm text-navy sm:text-base"
-                  >
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold">
-                      ✔
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimateIn>
-        </div>
 
-        <AnimateIn delay={280}>
-          <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-white/45 sm:text-sm">
-            {study.disclaimer}
-          </p>
+              <div className="mt-8 flex items-end justify-between gap-4 border-t border-white/10 pt-6">
+                <p className="max-w-[14rem] text-sm leading-snug text-white/45 sm:text-base">
+                  {example.yearlyDifference.label}
+                </p>
+                <p className="shrink-0 font-serif text-2xl text-gold/90 sm:text-3xl">
+                  {example.yearlyDifference.amount}
+                </p>
+              </div>
+            </div>
+          </article>
+        </AnimateIn>
+
+        <AnimateIn delay={200}>
+          <div className="mt-10 flex flex-col items-center gap-5">
+            <Link href="#contacto" className="btn-gold px-10 py-4 text-base font-semibold">
+              Solicitar valoración gratuita
+            </Link>
+            <p className="max-w-xl text-center text-sm leading-relaxed text-white/45">
+              {example.note}
+            </p>
+            <p className="max-w-xl text-center text-xs text-white/25">
+              {example.disclaimer}
+            </p>
+          </div>
         </AnimateIn>
       </div>
     </section>

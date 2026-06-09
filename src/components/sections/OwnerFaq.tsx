@@ -1,5 +1,4 @@
 import { AnimateIn } from "@/components/ui/AnimateIn";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { OWNER_FAQ } from "@/lib/constants";
 
 export function OwnerFaq() {
@@ -7,14 +6,12 @@ export function OwnerFaq() {
     <section id="faq" className="section-padding bg-white">
       <div className="container-main">
         <AnimateIn>
-          <SectionHeading
-            eyebrow="Propietarios"
-            title="Preguntas frecuentes"
-            subtitle="Respuestas claras sobre cómo trabajamos con propietarios en Gran Canaria."
-          />
+          <h2 className="text-center font-serif text-3xl text-navy sm:text-4xl">
+            Preguntas frecuentes
+          </h2>
         </AnimateIn>
 
-        <div className="mx-auto max-w-3xl space-y-4">
+        <div className="mx-auto mt-8 max-w-3xl space-y-3">
           {OWNER_FAQ.map((item, index) => (
             <AnimateIn key={item.question} delay={index * 80}>
               <details className="group overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 open:bg-white open:shadow-sm">

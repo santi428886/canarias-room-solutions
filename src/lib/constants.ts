@@ -19,7 +19,7 @@ export const NAV_LINKS = [
   { label: "Propietarios", href: "/#propietarios" },
   { label: "Caso práctico", href: "/#caso-practico" },
   { label: "Inmobiliarias", href: "/inmobiliarias" },
-  { label: "Quiénes somos", href: "/#quienes-somos" },
+  { label: "Quiénes somos", href: "/quienes-somos" },
   { label: "Contacto", href: "/#contacto" },
 ] as const;
 
@@ -77,7 +77,7 @@ export const WHY_CRS = [
 export const HERO_TITLE = "Gestión profesional de viviendas en Gran Canaria";
 
 export const HERO_OWNER_HIGHLIGHT =
-  "Además de una renta acordada, estudiamos modelos de colaboración flexibles para determinados propietarios.";
+  "Optimiza el rendimiento de tu vivienda con gestión profesional y menos carga operativa.";
 
 export const HERO_OWNER_BADGES = [
   "Renta acordada",
@@ -99,6 +99,61 @@ export const OWNER_FLEX_BAND = {
     "Estudio individual de cada vivienda",
   ],
   cta: "Solicitar valoración gratuita",
+} as const;
+
+export const OWNER_MAIN_MESSAGE = {
+  title: "Más rentabilidad. Menos gestión.",
+  subtitle:
+    "Un modelo pensado para propietarios que buscan optimizar el rendimiento de su vivienda sin asumir toda la gestión operativa.",
+  cta: "Solicitar valoración",
+} as const;
+
+export const OWNER_CHANGE_COMPARISON = {
+  title: "Lo que cambia para el propietario",
+  before: {
+    label: "Antes",
+    items: [
+      "Gestionar llamadas",
+      "Buscar inquilinos",
+      "Coordinar incidencias",
+      "Resolver problemas diarios",
+      "Menos tiempo libre",
+    ],
+  },
+  after: {
+    label: "Después",
+    items: [
+      "Gestión coordinada",
+      "Seguimiento de incidencias",
+      "Comunicación centralizada",
+      "Mayor tranquilidad",
+      "Más tiempo para el propietario",
+    ],
+  },
+} as const;
+
+export const OWNER_CASE_FUNNEL = {
+  title: "Ejemplo orientativo para propietarios",
+  subtitle: "Vivienda de 4 habitaciones en Gran Canaria",
+  agreedRent: {
+    label: "Renta acordada con propietario",
+    amount: "1.200 €/mes",
+  },
+  additionalParticipation: {
+    label: "Participación adicional orientativa",
+    amount: "+120 €/mes",
+  },
+  total: {
+    label: "Total propietario",
+    amount: "1.320 €/mes",
+  },
+  yearlyDifference: {
+    label: "Diferencia anual orientativa",
+    amount: "+1.440 €/año",
+  },
+  note: "Ejemplo orientativo. Cada vivienda se analiza individualmente según ubicación, estado, distribución, demanda y viabilidad operativa.",
+  disclaimer:
+    "Importes orientativos, no vinculantes. Sin promesa de rentabilidad garantizada.",
 } as const;
 
 export const OPERATING_ZONES = [
@@ -180,9 +235,9 @@ export const OWNER_BENEFITS = [
 ] as const;
 
 export const OWNER_CASE_STUDY = {
-  title: "Caso práctico de gestión",
+  title: "¿Cuánto podría generar tu vivienda?",
   subtitle:
-    "Un ejemplo orientativo que resume el modelo de colaboración, las opciones disponibles y el resultado para el propietario.",
+    "Ejemplos orientativos para entender cómo una gestión profesional puede mejorar la rentabilidad y reducir la carga operativa del propietario.",
   property: "Vivienda de 3 habitaciones",
   ownerReceive: {
     label: "Propietario recibe",
@@ -198,7 +253,7 @@ export const OWNER_CASE_STUDY = {
   ],
   orientativeTitle: "Niveles orientativos de colaboración",
   orientativeNote:
-    "Cada vivienda es diferente. Las condiciones finales dependen de ubicación, estado, distribución, demanda y viabilidad operativa.",
+    "Cada vivienda es diferente. Los importes mostrados son orientativos y dependen de la ubicación, estado del inmueble, distribución, demanda y viabilidad operativa.",
   orientativeExamples: [
     {
       title: "Vivienda de 3 habitaciones",
@@ -241,6 +296,61 @@ export const OWNER_CASE_STUDY = {
   ],
   disclaimer:
     "Los ejemplos mostrados son únicamente orientativos y no constituyen una oferta vinculante. Las condiciones finales se analizan individualmente para cada vivienda.",
+} as const;
+
+export const OWNER_CASE_VISUAL = {
+  primaryExample: {
+    title: "Ejemplo orientativo",
+    before: {
+      label: "Antes",
+      rows: [
+        { label: "Renta tradicional", value: "900 €/mes" },
+        { label: "Gestión", value: "Propietario" },
+        { label: "Incidencias", value: "Propietario" },
+        { label: "Limpieza", value: "Propietario" },
+        { label: "Coordinación", value: "Propietario" },
+      ],
+    },
+    after: {
+      label: "Después",
+      rows: [
+        { label: "Renta base", value: "900 €/mes" },
+        { label: "Ingreso total", value: "945 €/mes", hero: true },
+        { label: "Gestión", value: "Canarias Room Solutions" },
+        { label: "Limpieza", value: "Coordinada" },
+        { label: "Incidencias", value: "Gestionadas" },
+        { label: "Comunicación", value: "Centralizada" },
+      ],
+    },
+    heroBonus: {
+      monthly: "+45 €/mes adicionales",
+      yearly: "+540 €/año orientativos",
+    },
+  },
+  secondaryExample: {
+    title: "Vivienda de mayor potencial",
+    baseRent: { label: "Renta base", value: "1.200 €/mes" },
+    additionalParticipation: {
+      label: "Participación adicional",
+      value: "+120 €/mes",
+    },
+    totalIncome: { label: "Ingreso total", value: "1.320 €/mes" },
+    heroBonus: {
+      monthly: "+120 €/mes adicionales",
+      yearly: "+1.440 €/año orientativos",
+    },
+  },
+} as const;
+
+export const OWNER_TRUST_BLOCK = {
+  title: "¿Por qué algunos propietarios eligen este modelo?",
+  items: [
+    "Mantienen la propiedad a su nombre.",
+    "Reducen la carga operativa diaria.",
+    "Tienen un único interlocutor.",
+    "La vivienda permanece supervisada.",
+    "En determinados casos pueden beneficiarse de una participación adicional.",
+  ],
 } as const;
 
 export const OWNER_COMPARISON = {
@@ -292,59 +402,11 @@ export const OWNER_VALUE_CHANGES = {
 
 export const OWNER_SERVICES = {
   title: "¿De qué nos encargamos?",
-  subtitle:
-    "Nuestro objetivo es que el propietario no tenga que ocuparse de la gestión diaria de la vivienda.",
-  highlight:
-    "Menos llamadas, menos incidencias directas y una gestión más ordenada.",
   items: [
-    {
-      title: "Limpieza y mantenimiento",
-      description:
-        "Coordinamos la limpieza de zonas comunes y el mantenimiento básico de la vivienda.",
-      icon: "sparkles",
-    },
-    {
-      title: "Reparaciones e incidencias",
-      description:
-        "Gestionamos la comunicación con profesionales y el seguimiento de averías o incidencias.",
-      icon: "wrench",
-    },
-    {
-      title: "Atención a inquilinos",
-      description:
-        "Centralizamos consultas, avisos y necesidades del día a día.",
-      icon: "users",
-    },
-    {
-      title: "Entradas y salidas",
-      description:
-        "Organizamos altas, bajas y cambios de ocupantes cuando sea necesario.",
-      icon: "door",
-    },
-    {
-      title: "Seguimiento continuo",
-      description:
-        "Supervisamos el funcionamiento general de la vivienda y la ocupación.",
-      icon: "activity",
-    },
-    {
-      title: "Gestión documental",
-      description:
-        "Coordinamos la documentación operativa y los acuerdos necesarios.",
-      icon: "file",
-    },
-    {
-      title: "Presentación de habitaciones",
-      description:
-        "Cuidamos la imagen de las habitaciones para mejorar su presentación y atractivo.",
-      icon: "bed",
-    },
-    {
-      title: "Comunicación con el propietario",
-      description:
-        "Mantenemos una comunicación clara y actualizaciones periódicas.",
-      icon: "message",
-    },
+    "Captación de inquilinos",
+    "Contratos y documentación",
+    "Cobros y seguimiento",
+    "Mantenimiento e incidencias",
   ],
 } as const;
 
@@ -495,29 +557,29 @@ export const PRUDENT_NOTE =
   "Según las características de la vivienda, ubicación y distribución, puede existir una plusvalía o mejora de rentabilidad frente a un alquiler tradicional.";
 
 export const BEFORE_AFTER = {
+  title: "La presentación también forma parte de la gestión",
+  subtitle:
+    "Mejoramos la imagen de la vivienda para aumentar su atractivo y facilitar una ocupación más estable.",
+  footnote:
+    "Una mejor presentación puede aumentar el atractivo y la ocupación de la vivienda.",
   before: {
-    label: "Antes",
-    caption:
-      "Habitación funcional pero anticuada, con margen de mejora en presentación y atractivo para el alquiler.",
-    image:
-      "https://images.unsplash.com/photo-1775595224297-a98f8fd7927a?w=800&h=600&fit=crop&q=80",
-    fallbackImage:
-      "https://images.unsplash.com/photo-1747227798754-c7bd3ad01319?w=800&h=600&fit=crop&q=80",
+    label: "Antes de CRS",
+    items: [
+      "Fotos poco atractivas",
+      "Menor ocupación",
+      "Gestión directa del propietario",
+      "Incidencias sin coordinación",
+    ],
   },
   after: {
-    label: "Después",
-    caption:
-      "Habitación preparada profesionalmente, con mejor presentación, imagen y atractivo para los inquilinos.",
-    image:
-      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop&q=85",
-    fallbackImage:
-      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop&q=80",
+    label: "Después de CRS",
+    items: [
+      "Home staging",
+      "Fotografías profesionales",
+      "Gestión integral",
+      "Mayor ocupación",
+    ],
   },
-} as const;
-
-export const BEFORE_AFTER_IMAGE_SIZE = {
-  width: 800,
-  height: 600,
 } as const;
 
 export const HERO_IMAGE =
@@ -545,6 +607,17 @@ export const LEGAL_LINKS = [
   { label: "Privacidad", href: "/privacidad" },
   { label: "Cookies", href: "/cookies" },
 ] as const;
+
+export const HOME_ABOUT_TRUST = {
+  title: "Por qué confiar en Canarias Room Solutions",
+  text: "Trabajamos con un enfoque basado en la gestión organizada, la comunicación clara y el seguimiento continuo de cada vivienda. Nuestro objetivo es que el propietario tenga más tranquilidad y menos carga operativa.",
+  points: [
+    "Gestión integral",
+    "Comunicación transparente",
+    "Seguimiento continuo",
+    "Atención a incidencias",
+  ],
+} as const;
 
 export const ABOUT_PAGE_PARAGRAPHS = [
   "Canarias Room Solutions es un proyecto especializado en la gestión profesional de viviendas destinadas al alquiler por habitaciones en Gran Canaria.",
@@ -594,39 +667,45 @@ export const AGENCY_PAGE_BENEFITS = [
 ] as const;
 
 export const AGENCY_COLLABORATION_EXAMPLE = {
-  title: "Ejemplo de colaboración",
+  title: "¿Qué podría generar esta colaboración?",
   subtitle:
-    "Dos situaciones orientativas para entender cómo puede articularse una colaboración recurrente, sin comprometer la confidencialidad del modelo operativo.",
-  cases: [
+    "Ejemplos orientativos para una inmobiliaria que nos presenta viviendas compatibles con nuestro modelo de gestión por habitaciones.",
+  cards: [
     {
-      label: "Ejemplo 1",
-      property: "Vivienda de 3 habitaciones",
-      ownerRentLabel: "Renta acordada con propietario",
-      ownerRent: "900 €/mes",
-      agencyFeeLabel: "Retribución inmobiliaria",
-      agencyFee: "12%",
-      resultLabel: "Resultado orientativo",
-      result: "108 €/mes",
-      footerText:
-        "La inmobiliaria mantiene su actividad habitual y puede recibir una retribución recurrente por viviendas que encajen en este modelo.",
+      homes: 1,
+      homesLabel: "1 vivienda captada",
+      monthlyCommissionLabel: "Comisión orientativa",
+      monthlyCommission: "108 €/mes",
+      yearlyIncomeLabel: "Ingreso recurrente anual",
+      yearlyIncome: "1.296 €/año",
     },
     {
-      label: "Ejemplo 2",
-      property: "Vivienda de 4 habitaciones",
-      ownerRentLabel: "Renta acordada con propietario",
-      ownerRent: "1.200 €/mes",
-      agencyFeeLabel: "Retribución inmobiliaria",
-      agencyFee: "12%",
-      resultLabel: "Resultado orientativo",
-      result: "144 €/mes",
-      footerText:
-        "Cada colaboración se estudia individualmente según la vivienda, ubicación y condiciones acordadas.",
+      homes: 3,
+      homesLabel: "3 viviendas captadas",
+      monthlyCommissionLabel: "Comisión orientativa",
+      monthlyCommission: "324 €/mes",
+      yearlyIncomeLabel: "Ingreso recurrente anual",
+      yearlyIncome: "3.888 €/año",
+    },
+    {
+      homes: 5,
+      homesLabel: "5 viviendas captadas",
+      monthlyCommissionLabel: "Comisión orientativa",
+      monthlyCommission: "540 €/mes",
+      yearlyIncomeLabel: "Ingreso recurrente anual",
+      yearlyIncome: "6.480 €/año",
+    },
+    {
+      homes: 10,
+      homesLabel: "10 viviendas captadas",
+      monthlyCommissionLabel: "Comisión orientativa",
+      monthlyCommission: "1.080 €/mes",
+      yearlyIncomeLabel: "Ingreso recurrente anual",
+      yearlyIncome: "12.960 €/año",
     },
   ],
-  importantNote:
-    "En algunos casos, también puede establecerse una participación acordada para el propietario vinculada al rendimiento de la vivienda. Las condiciones finales se analizan individualmente en cada colaboración.",
-  disclaimer:
-    "Los ejemplos mostrados son orientativos y no constituyen una oferta vinculante ni una garantía de ingresos. Las condiciones pueden variar según cada inmueble y acuerdo alcanzado.",
+  footnote:
+    "Ejemplo orientativo calculado sobre viviendas con una renta acordada de 900 €/mes y una participación del 12%. Los importes pueden variar según la vivienda, ubicación y condiciones acordadas.",
 } as const;
 
 export const AGENCY_WHY_WORK_WITH_US = {

@@ -1,64 +1,94 @@
 import { AnimateIn } from "@/components/ui/AnimateIn";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AGENCY_COLLABORATION_EXAMPLE } from "@/lib/constants";
 
-export function AgencyCollaborationExample() {
-  const { cases, importantNote, disclaimer, subtitle } =
-    AGENCY_COLLABORATION_EXAMPLE;
+function GrowthScale({
+  steps,
+}: {
+  steps: readonly { homes: number }[];
+}) {
+  const maxHomes = steps[steps.length - 1]?.homes ?? 10;
 
   return (
-    <section className="section-padding bg-gray-50">
-      <div className="container-main">
+    <div className="mx-auto mb-10 max-w-5xl px-2">
+      <div className="relative h-2 overflow-hidden rounded-full bg-white/10">
+        <div
+          className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-gold/40 to-gold"
+          style={{ width: "100%" }}
+        />
+      </div>
+      <div className="mt-4 grid grid-cols-4 gap-2">
+        {steps.map((step) => (
+          <div key={step.homes} className="flex flex-col items-center text-center">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 bg-navy-light text-xs font-bold text-gold">
+              {step.homes}
+            </span>
+            <span className="mt-2 hidden text-[10px] uppercase tracking-wider text-white/35 sm:block">
+              viviendas
+            </span>
+          </div>
+        ))}
+      </div>
+      <p className="mt-3 text-center text-xs text-white/30">
+        Crecimiento orientativo de {steps[0]?.homes} a {maxHomes} viviendas captadas
+      </p>
+    </div>
+  );
+}
+
+export function AgencyCollaborationExample() {
+  const { title, subtitle, cards, footnote } = AGENCY_COLLABORATION_EXAMPLE;
+
+  return (
+    <section className="section-deep relative overflow-hidden py-24 lg:py-32">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(201,168,76,0.08),transparent_60%)]" />
+      <div className="absolute inset-x-0 top-0 gold-separator" />
+
+      <div className="container-main relative">
         <AnimateIn>
-          <SectionHeading
-            eyebrow="Referencia"
-            title={AGENCY_COLLABORATION_EXAMPLE.title}
-            subtitle={subtitle}
-          />
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+              Referencia financiera
+            </p>
+            <h2 className="mt-4 font-serif text-3xl text-white sm:text-4xl lg:text-5xl">
+              {title}
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-white/55 sm:text-base">
+              {subtitle}
+            </p>
+          </div>
         </AnimateIn>
 
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
-          {cases.map((example, index) => (
-            <AnimateIn key={example.label} delay={100 + index * 80}>
-              <article className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-navy shadow-2xl shadow-navy/20">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(196,162,101,0.16),transparent_55%)]" />
+        <AnimateIn delay={80}>
+          <GrowthScale steps={cards} />
+        </AnimateIn>
 
-                <div className="relative flex flex-1 flex-col p-8 lg:p-10">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-                    {example.label}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+          {cards.map((card, index) => (
+            <AnimateIn key={card.homes} delay={120 + index * 70}>
+              <article className="dark-card flex h-full flex-col px-5 py-7 sm:px-6 sm:py-8">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-gold/10 font-serif text-lg text-gold">
+                    {card.homes}
+                  </span>
+                  <p className="text-sm font-medium leading-snug text-white/70">
+                    {card.homesLabel}
                   </p>
-                  <h3 className="mt-4 font-serif text-2xl text-white sm:text-3xl">
-                    {example.property}
-                  </h3>
+                </div>
 
-                  <dl className="mt-8 space-y-5 border-t border-white/10 pt-8">
-                    <div>
-                      <dt className="text-xs uppercase tracking-wider text-white/45">
-                        {example.ownerRentLabel}
-                      </dt>
-                      <dd className="mt-1 text-lg font-semibold text-white">
-                        {example.ownerRent}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="text-xs uppercase tracking-wider text-white/45">
-                        {example.agencyFeeLabel}
-                      </dt>
-                      <dd className="mt-1 text-lg font-semibold text-gold">
-                        {example.agencyFee}
-                      </dd>
-                    </div>
-                  </dl>
+                <div className="mt-6 flex flex-1 flex-col justify-end border-t border-white/10 pt-6">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
+                    {card.monthlyCommissionLabel}
+                  </p>
+                  <p className="mt-2 font-serif text-3xl leading-none text-white sm:text-4xl">
+                    {card.monthlyCommission}
+                  </p>
 
-                  <div className="mt-auto border-t border-white/10 pt-8">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-                      {example.resultLabel}
+                  <div className="mt-5 border-t border-white/10 pt-5">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold/70">
+                      {card.yearlyIncomeLabel}
                     </p>
-                    <p className="mt-4 font-serif text-5xl leading-none text-gold sm:text-6xl">
-                      {example.result}
-                    </p>
-                    <p className="mt-6 text-sm leading-relaxed text-white/65 sm:text-base">
-                      {example.footerText}
+                    <p className="mt-2 font-serif text-xl text-gold sm:text-2xl">
+                      {card.yearlyIncome}
                     </p>
                   </div>
                 </div>
@@ -67,17 +97,9 @@ export function AgencyCollaborationExample() {
           ))}
         </div>
 
-        <AnimateIn delay={250}>
-          <div className="mt-8 rounded-2xl border border-gold/25 bg-beige/40 px-6 py-5 sm:px-8 sm:py-6">
-            <p className="text-sm leading-relaxed text-gray-700 sm:text-base">
-              {importantNote}
-            </p>
-          </div>
-        </AnimateIn>
-
-        <AnimateIn delay={300}>
-          <p className="mt-6 text-center text-xs leading-relaxed text-gray-500">
-            {disclaimer}
+        <AnimateIn delay={400}>
+          <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-relaxed text-white/35 sm:text-sm">
+            {footnote}
           </p>
         </AnimateIn>
       </div>

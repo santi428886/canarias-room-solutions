@@ -1,20 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HeroContactBar } from "@/components/ui/ContactDetails";
 import {
   HERO_IMAGE,
-  HERO_OWNER_BADGES,
   HERO_OWNER_HIGHLIGHT,
   HERO_TITLE,
 } from "@/lib/constants";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gray-50 pt-28 pb-16 lg:pt-36 lg:pb-24">
+    <section className="relative overflow-hidden bg-gray-50 pt-24 pb-10 lg:pt-32 lg:pb-14">
       <div className="container-main">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div>
-            <p className="animate-fade-up mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+            <p className="animate-fade-up mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
               Gran Canaria · Gestión por habitaciones
             </p>
 
@@ -22,24 +20,13 @@ export function Hero() {
               {HERO_TITLE}
             </h1>
 
-            <p className="animate-fade-up delay-200 mt-6 max-w-xl text-base font-medium leading-relaxed text-navy sm:text-lg">
+            <p className="animate-fade-up delay-200 mt-5 max-w-xl text-base leading-relaxed text-gray-600 sm:text-lg">
               {HERO_OWNER_HIGHLIGHT}
             </p>
 
-            <div className="animate-fade-up delay-250 mt-6 flex flex-wrap gap-3">
-              {HERO_OWNER_BADGES.map((label) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-navy shadow-sm"
-                >
-                  ✔ {label}
-                </span>
-              ))}
-            </div>
-
-            <div className="animate-fade-up delay-300 mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="animate-fade-up delay-300 mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="#contacto" className="btn-primary">
-                Solicitar valoración gratuita
+                Solicitar valoración
               </Link>
               <Link href="/inmobiliarias" className="btn-secondary">
                 Soy inmobiliaria
@@ -58,37 +45,10 @@ export function Hero() {
                 className="aspect-[4/3] w-full object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/95 p-4 backdrop-blur-sm">
-                <p className="text-xs font-semibold uppercase tracking-wider text-gold">
-                  Modelo de gestión especializado
-                </p>
-                <p className="mt-1 text-sm text-navy">
-                  Mayor control, seguimiento continuo y coordinación profesional
-                  del alquiler por habitaciones.
-                </p>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/25 to-transparent" />
             </div>
           </div>
         </div>
-
-        <div className="animate-fade-up delay-400 mt-14 flex flex-wrap items-center justify-center gap-3 border-t border-gray-200 pt-10 lg:mt-16">
-          {[
-            "Gran Canaria",
-            "Gestión especializada",
-            "Modelo transparente",
-            "Seguimiento continuo",
-          ].map((label) => (
-            <span
-              key={label}
-              className="inline-flex items-center rounded-full border border-gray-200 bg-white px-5 py-2 text-sm font-medium text-navy shadow-sm"
-            >
-              {label}
-            </span>
-          ))}
-        </div>
-
-        <HeroContactBar />
       </div>
     </section>
   );
